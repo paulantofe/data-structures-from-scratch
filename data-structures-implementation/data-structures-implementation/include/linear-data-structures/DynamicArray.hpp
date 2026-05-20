@@ -21,7 +21,7 @@ private:
 	}
 
 public:
-	DynamicArray() : capacity(1), size(0) { arr = new T[capacity]; } //tested
+	DynamicArray() : capacity(1), size(0) { arr = new T[capacity]; }
 
 	DynamicArray(const DynamicArray& other) {
 		capacity = other.capacity;
@@ -47,18 +47,18 @@ public:
 		return *this;
 	}
 
-	~DynamicArray()  { delete[] arr; } //tested
+	~DynamicArray()  { delete[] arr; } 
 
 	void push_back(const T& value) {
 		if (size == capacity)
 			doubleCapacity();
 
 		arr[size++] = value;
-	} //tested
+	} 
 
 	void pop_back() {
 		size--;
-	} //tested
+	} 
 
 	void remove(const int index) {
 		if (index < 0 || index > size)
@@ -67,7 +67,7 @@ public:
 		for (int i = index; i < size; i++)
 			arr[i] = arr[i + 1];
 		size--;
-	} //tested
+	} 
 
 	void push(const T& value, int index) {
 		if (index < 0 || index > size)
@@ -81,18 +81,18 @@ public:
 
 		arr[index] = value;
 		size++;
-	} //tested
+	} 
 
 	void print() const {
 		for (int i = 0; i < size; i++)
 			std::cout << arr[i] << ' ';
 		std::cout << std::endl;
-	} //tested
+	} 
 
 	void clear() {
 		for (int i = 0; i < size; i++)
 			arr[i] = 0;
-	} //tested
+	} 
 
 };
 
