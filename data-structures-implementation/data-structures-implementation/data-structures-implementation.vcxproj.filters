@@ -20,7 +20,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main_app\main.cpp">
+    <ClCompile Include="test\DynamicArrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestDynamicArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

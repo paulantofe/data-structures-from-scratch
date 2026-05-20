@@ -126,7 +126,7 @@
     <ClInclude Include="include\linear-data-structures\DynamicArray.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main_app\main.cpp" />
+    <ClCompile Include="test\TestDynamicArray.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
