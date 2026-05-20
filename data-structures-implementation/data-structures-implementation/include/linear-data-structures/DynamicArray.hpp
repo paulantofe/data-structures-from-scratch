@@ -2,12 +2,13 @@
 #define DYNAMIC_ARRAY_HPP
 
 #include <iostream>
+#include <stdexcept>
 
 template <typename T> class DynamicArray {
 private:
 	T* arr;
-	int capacity;
-	int size;
+	unsigned int capacity;
+	unsigned int size;
 
 	void doubleCapacity() {
 		T* temp = new T[2 * capacity];
@@ -23,7 +24,7 @@ private:
 public:
 	DynamicArray() : capacity(1), size(0) { arr = new T[capacity]; }
 
-	DynamicArray(const unsigned int size) : capacity(size), this->size(size) {
+	DynamicArray(const unsigned int initial_size) : capacity(size), size(initial_size) {
 		arr = new T[size];
 	}
 
@@ -31,7 +32,7 @@ public:
 		capacity = other.capacity;
 		size = other.size;
 
-		arr = new T[size];
+		arr = new T[capacity];
 		for (int i = 0; i < size; i++)
 			arr[i] = other.arr[i];
 	}
@@ -65,10 +66,10 @@ public:
 	} 
 
 	void remove(const int index) {
-		if (index < 0 || index > size)
+		if (index < 0 || index >= size)
 			throw std::out_of_range("Index is out of range.");
 
-		for (int i = index; i < size; i++)
+		for (int i = index; i < size - 1; i++)
 			arr[i] = arr[i + 1];
 		size--;
 	} 
@@ -94,9 +95,6 @@ public:
 	} 
 
 	void clear() {
-		for (int i = 0; i < size; i++)
-			arr[i] = 0;
-
 		size = 0;
 	} 
 
@@ -115,7 +113,7 @@ public:
 	void resize(const unsigned int newSize) {
 		T* temp = new T[newSize];
 
-		for (int i = 0; i < newSize; i++)
+		for (int i = 0; i < std::min(size, newSize); i++)
 			temp[i] = arr[i];
 
 		delete[] arr;
