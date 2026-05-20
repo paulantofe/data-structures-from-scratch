@@ -15,7 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="data-structures-implementation.cpp">
+    <ClInclude Include="include\linear-data-structures\DynamicArray.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main_app\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
