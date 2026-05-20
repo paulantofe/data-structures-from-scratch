@@ -94,6 +94,18 @@ public:
 			arr[i] = 0;
 	} 
 
+	unsigned int size() const {
+		return size;
+	}
+
+	unsigned int capacity() const {
+		return capacity;
+	}
+
+	bool empty() const {
+		return size == 0;
+	}
+
 };
 
 #endif
