@@ -23,6 +23,10 @@ private:
 public:
 	DynamicArray() : capacity(1), size(0) { arr = new T[capacity]; }
 
+	DynamicArray(const unsigned int size) : capacity(size), this->size(size) {
+		arr = new T[size];
+	}
+
 	DynamicArray(const DynamicArray& other) {
 		capacity = other.capacity;
 		size = other.size;
@@ -92,6 +96,8 @@ public:
 	void clear() {
 		for (int i = 0; i < size; i++)
 			arr[i] = 0;
+
+		size = 0;
 	} 
 
 	unsigned int size() const {
@@ -104,6 +110,19 @@ public:
 
 	bool empty() const {
 		return size == 0;
+	}
+
+	void resize(const unsigned int newSize) {
+		T* temp = new T[newSize];
+
+		for (int i = 0; i < newSize; i++)
+			temp[i] = arr[i];
+
+		delete[] arr;
+
+		arr = temp;
+		size = newSize;
+		capacity = newSize;
 	}
 
 };
