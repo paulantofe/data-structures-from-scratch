@@ -56,6 +56,19 @@ public:
 		arr[size++] = value;
 	}
 
+	void pop_back() {
+		size--;
+	}
+
+	void remove(const int index) {
+		if (index < 0 || index > size)
+			throw std::out_of_range("Index is out of range.");
+
+		for (int i = index; i < size; i++)
+			arr[i] = arr[i + 1];
+		size--;
+	}
+
 	void push(const T& value, int index) {
 		if (index < 0 || index > size)
 			throw std::out_of_range("Index out of bounds for insertion.");
@@ -75,6 +88,12 @@ public:
 			std::cout << arr[i] << ' ';
 		std::cout << std::endl;
 	}
+
+	void clear() {
+		for (int i = 0; i < size; i++)
+			arr[i] = 0;
+	}
+
 };
 
 #endif
