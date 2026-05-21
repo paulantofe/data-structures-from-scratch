@@ -1,5 +1,4 @@
-#ifndef DYNAMIC_ARRAY_HPP
-#define DYNAMIC_ARRAY_HPP
+#pragma once
 
 #include <iostream>
 #include <stdexcept>
@@ -133,7 +132,4 @@ public:
 		m_size = newSize;
 		m_capacity = newSize;
 	}
-
 };
-
-#endif
