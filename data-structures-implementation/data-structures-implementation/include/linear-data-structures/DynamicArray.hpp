@@ -26,7 +26,7 @@ public:
 	DynamicArray() : m_capacity(1), m_size(0) { m_arr = new T[m_capacity]; }
 
 	DynamicArray(const unsigned int initial_size) : m_capacity(initial_size), m_size(initial_size) {
-		m_arr = new T[size];
+		m_arr = new T[initial_size];
 	}
 
 	DynamicArray(const DynamicArray& other) {
