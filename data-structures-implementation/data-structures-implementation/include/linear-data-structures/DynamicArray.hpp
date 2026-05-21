@@ -162,4 +162,7 @@ public:
 		bool operator==(const iterator& other) const { return m_ptr == other.m_ptr; }
 		bool operator!=(const iterator& other) const { return m_ptr != other.m_ptr; }
 	};
+
+	iterator begin() { return iterator(m_arr); }
+	iterator end() { return iterator(m_arr + m_size); }
 };
