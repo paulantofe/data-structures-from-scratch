@@ -132,4 +132,34 @@ public:
 		m_size = newSize;
 		m_capacity = newSize;
 	}
+
+	class iterator {
+	public:
+		using iterator_category = std::random_access_iterator_tag;
+		using value_type = T;
+		using difference_type = std::ptrdiff_t;
+		using pointer = T*;
+		using reference = T&;
+
+	private:
+		pointer m_ptr;
+
+	public:
+		iterator(pointer ptr) : m_ptr(ptr) {};
+
+		reference operator*() const { *m_ptr };
+		pointer operator->() const { return m_ptr };
+
+		iterator& operator++() { m_ptr++; return *this; }     
+		iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; } 
+		iterator& operator--() { m_ptr--; return *this; }
+		iterator operator--(int) { iterator tmp = *this; --(*this); return tmp; }
+
+		iterator operator+(difference_type n) const { return iterator(m_ptr + n); }
+		iterator operator-(difference_type n) const { return iterator(m_ptr - n); }
+		difference_type operator-(const iterator& other) const { return m_ptr - other.m_ptr; }
+
+		bool operator==(const iterator& other) const { return m_ptr == other.m_ptr; }
+		bool operator!=(const iterator& other) const { return m_ptr != other.m_ptr; }
+	};
 };
