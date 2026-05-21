@@ -147,8 +147,8 @@ public:
 	public:
 		iterator(pointer ptr) : m_ptr(ptr) {};
 
-		reference operator*() const { *m_ptr };
-		pointer operator->() const { return m_ptr };
+		reference operator*() const { return *m_ptr; };
+		pointer operator->() const { return m_ptr; };
 
 		iterator& operator++() { m_ptr++; return *this; }     
 		iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; } 
