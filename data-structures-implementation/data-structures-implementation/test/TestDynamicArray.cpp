@@ -30,6 +30,11 @@ int main() {
 	arr.print();
 	std::cout << '\n';
 
+	std::cout << "Array iterated: ";
+	for (auto& el : arr)
+		std::cout << el << ' ';
+	std::cout << "\n\n";
+
 	std::cout << "Array after clear: ";
 	arr.clear();
 	arr.print();
